@@ -1,5 +1,4 @@
-﻿using FoodOrderApp.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace FoodOrderApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginView : ContentPage
+    public partial class ProductView : ContentPage
     {
-        public LoginView()
+        public ProductView()
         {
             InitializeComponent();
-            BindingContext = new LoginViewModel();
         }
     }
 }
