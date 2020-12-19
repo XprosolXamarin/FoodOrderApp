@@ -1,4 +1,5 @@
-﻿using FoodOrderApp.ViewModels;
+﻿using FoodOrderApp.Models;
+using FoodOrderApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,14 @@ namespace FoodOrderApp.Views
             BindingContext = new ProductViewModel();
         }
 
-        private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            var category = e.CurrentSelection.FirstOrDefault() as Category;
+            if (category == null)
+                return;
+            await Navigation.PushModalAsync(new CategoryView(category));
+            _ = ((CollectionView)sender).SelectedItem == null;
+           
         }
     }
 }
